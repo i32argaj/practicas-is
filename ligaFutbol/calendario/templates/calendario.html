@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block cuerpo %}
+		<br><br><br>
+		<h1> <u> <b> CALENDARIO </b> </u> </center> </h1>
+		<br>
+		<div class="container">
+  			<div class="col-md-4">
+			<h3>  &nbsp&nbsp&nbsp&nbsp<u>Leyenda </u> </h3>
+			<h4 style="color:green;"> <b>Jornada acabada </b></h4>
+			<h4 style="color:red;"> <b> Jornada sin acabar </b> <h4>
+			</div>
+		 	<div class="col-md-4">
+		<table border="2" style="width:100%">
+		{% for i in jornadas %}
+		<tr>
+			{% if i.acabada %}
+			<td style="background-color:lightgreen"> <a href=/partidos/{{i.numero}}  style="color:black;"> Jornada {{i.numero}} </td> 
+			{% else %}
+			<td style="background-color:#F17070;"> <a href=/partidos/{{i.numero}} style="color:black;"> Jornada {{i.numero}} </td> 
+			{% endif %}
+		</tr>
+		{% endfor %}
+		
+		</table>
+		</div>
+	
+	{% endblock %}
