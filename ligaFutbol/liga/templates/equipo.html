@@ -1,1 +1,41 @@
-
+{% extends "base.html" %}
+{% block cuerpo %}
+		<br><br><br>
+		<h1> <b> <u> {{equipo.nombre}} </u> </b> </h1>
+		<a href="/modificarEquipo/{{equipo.nombreSimple}}" class="btn btn-primary btn-lg active btn-xs" role="button">Modificar Equipo</a>
+		<h2> <img src="{{ MEDIA_URL }}{{ equipo.escudo }}" WIDTH=200 HEIGHT=200/> </h2>
+		<div class="container">
+  			<div class="col-md-4">
+			<h3>  <u>Breve Historia </u> </h3>
+			<h4> {{equipo.breveHistoria}} </h4>
+			</div>
+			<div class="col-md-4">
+			<h3> <b> Puntos: </b> {{equipo.puntos}} </h2>
+			<h3> <b> Estadio: </b> {{equipo.estadio}} </h2>
+			<h3> <b> Año de fundacion: </b> {{equipo.anio}} </h2>
+			<h3> <b> Ciudad: </b> {{equipo.ciudad}} </h2>
+			<h3> <b> Entrenador: </b> {{equipo.entrenador}} </h2>
+			
+			</div>
+			<div class="col-md-4">
+				<h4> &nbsp&nbsp&nbsp&nbsp<img src="{{ MEDIA_URL }}{{ equipo.fotoEstadio }}" width="400" height="200">  </h4>
+			</div>
+		</div>
+		<h3> <b> Jugadores </b> </h2>
+			<table border="1" style="width:70%">
+			<th> Nombre </th>
+			<th> Posicion </th>
+			<th> Edad </th>
+			<th> Goles </th>
+			<th> Dorsal </th>
+			{% for i in jugadores %}
+			<tr>
+				<td> <center> {{i.nombre}} </center> </td>
+				<td> <center> {{i.posicion}} </center> </td>
+				<td> <center> {{i.edad}} </center> </td>
+				<td> <center> {{i.goles}} </center> </td>
+				<td> <center> {{i.dorsal}} </center> </td>
+			</tr>
+			{% endfor %}
+			</table>
+{% endblock %}	
