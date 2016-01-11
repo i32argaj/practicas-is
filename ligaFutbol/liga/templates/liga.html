@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block cuerpo %}
+		<br><br><br>
+		<h1> <b> <u> CLASIFICACION LIGA BBVA </u> <b> </center> </h1>
+		<br><br>
+		<center> <table border="1" style="width:70%" class="table-striped"> </center>
+		<th> Escudo </th>
+		<th> Equipo </th>
+		<th> Puntos </th>
+		<th> Partidos Jugados </th>
+		<th> Partidos Ganados </th>
+		<th> Partidos Perdidos </th>
+		<th> Partidos Empatados </th>
+		{% for i in equipos %}
+		<tr>
+			<td> <img src="{{ MEDIA_URL }}{{ i.escudo }}" WIDTH=50 HEIGHT=50/> </td>
+			<td> <a href=/clasificacion/{{i.nombreSimple}} style="color:black;"> <h4>  {{i.nombre}} </h4> </a> </td> 
+			<td> {{i.puntos}} </center> </td>
+			<td> {{i.partidosJugados}} </td>
+			<td> {{i.partidosGanados}} </td>
+			<td> {{i.partidosPerdidos}} </td>
+			<td> {{i.partidosEmpatados}} </td>
+		</tr>
+		{% endfor %}
+		</table>
+		
+{% endblock %}	
