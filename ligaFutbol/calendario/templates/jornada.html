@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block cuerpo %}
+		<br><br><br>
+		<h1> <u> <b> JORNADA {{jornada.numero}} </b> </u> </center> </h1>
+		<br>
+		<center> <h2> <u> Partidos </u> </h2> </center>
+		<br>
+		<center> <table border="1" style="width:70%" class="table-striped"> </center>
+		<th> Equipo Local </th>
+		<th> Equipo Visitante </th>
+		<th> Fecha </th>
+		<th> Resultado </th>
+		{% for i in partidos %}
+		<tr>
+			<td> {{i.equipoLocal}} </center> </td>
+			<td> {{i.equipoVisitante}} </td>
+			<td> {{i.dia}} </td>
+			<td> {{i.resultado}} </td>
+		</tr>
+		{% endfor %}
+		</table>
+		
+{% endblock %}	
