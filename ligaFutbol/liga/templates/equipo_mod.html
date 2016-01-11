@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block cuerpo %}
+	<br><br><br>
+	<h2>Modificar Equipo</h2>
+	<br>
+	<form id='formulario' method='post' enctype='multipart/form-data' action=''>{% csrf_token %}
+	    {{formulario.as_p}}
+		<p><input type='submit' value="Modificar Equipo"></p>
+	</form>
+{% endblock %}
