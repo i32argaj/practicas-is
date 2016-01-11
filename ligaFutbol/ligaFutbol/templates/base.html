@@ -1,0 +1,82 @@
+<html>
+	<head>
+		<title> Fut4all </title>
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+		<style type="text/css">
+		.carousel-inner > .item > img,
+  		.carousel-inner > .item > a > img {
+      	width: 100%;
+      	max-height: 500px
+      }	
+		table {
+			background-color: white;
+		}
+
+		table td {
+			text-align: center;
+			font-family: "Arial";
+			font-size: 1em;
+			font-variant: small-caps;
+			line-height: 150%;
+			width: 200px;
+		}
+
+		table th {
+			text-align: center;
+			background-color: black;
+			color: white;
+		}
+		tr:nth-child(even){
+			background-color: #A4A4A4;
+		}
+		tr:nth-child(odd){
+			background-color: #ddd;
+		}
+   	
+  		
+   	</style>
+	</head>
+	<center>
+	<body style="background-color:#EFF5FB;">
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+  		<div class="container-fluid">
+    	<div class="navbar-header">
+      	<a class="navbar-brand" href="/"><b>FUT4ALL</b></a>
+    	</div>
+    	<div>
+      <ul class="nav navbar-nav">
+        <li><a href="/clasificacion"><span class="glyphicon glyphicon-th-list"></span> Clasificacion</a></li>
+        <li><a href="/partidos"><span class="glyphicon glyphicon-calendar"></span> Calendario</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+      {% if not user.is_authenticated %}
+		   <li><a href="/usuario/registro"><span class="glyphicon glyphicon-user"></span> Resgistrarse</a></li>
+		   <li><a href="/usuario/login"><span class="glyphicon glyphicon-log-in"></span> Iniciar Sesion</a></li>
+		 {% else %}
+		 	<li><a href="#"> <span class="glyphicon glyphicon-user"> </span> {{user.username}} </a></li>
+		 	<li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-wrench"></span> Gestion Equipos <span class="caret"></span></a>
+           <ul class="dropdown-menu">
+            <li><a href="/crearEquipo">Crear Equipo</a></li>
+           </ul>
+        </li>
+		   <li><a href="/usuario/logout"><span class="glyphicon glyphicon-log-out"></span> Cerrar Sesion</a></li>
+		{% endif %}
+    	</ul>
+    	</div>
+  		</div>
+		</nav>
+		
+		{% block cuerpo %}
+		
+		
+		
+		
+		
+		{% endblock %}		
+	</body>
+	<br><br><br>
+	</center>
+</html>
